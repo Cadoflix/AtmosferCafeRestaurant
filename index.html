@@ -75,11 +75,7 @@ h1{
   left: 0;
   border-top: 2px solid #ececee;
   border-bottom: 2px solid #ececee;
-  transition: border-width 100ms 1500ms ease, 
-              top 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1),
-              height 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1), 
-              background-color 200ms ease,
-              transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.3s ease;
 }
 .menu-icon:checked + label:after,
 .menu-icon:not(:checked) + label:after{
@@ -93,10 +89,7 @@ h1{
   right: 4px;
   background-color: #ececee;
   margin-top: -1px;
-  transition: width 100ms 1750ms ease, 
-              right 100ms 1750ms ease,
-              margin-top 100ms ease, 
-              transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.3s ease;
 }
 .menu-icon:checked + label:before{
   top: 10px;
@@ -104,21 +97,12 @@ h1{
   height: 2px;
   background-color: #ececee;
   border-width: 0;
-  transition: border-width 100ms 340ms ease, 
-              top 100ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
-              height 100ms 300ms cubic-bezier(0.23, 1, 0.32, 1), 
-              background-color 200ms 500ms ease,
-              transform 200ms 1700ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 .menu-icon:checked + label:after{
   width: 30px;
   margin-top: 0;
   right: 0;
   transform: rotate(-45deg);
-  transition: width 100ms ease,
-              right 100ms ease,  
-              margin-top 100ms 500ms ease, 
-              transform 200ms 1700ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .nav{
@@ -134,21 +118,12 @@ h1{
   overflow: hidden;
   box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
   background-color: #ffc400;
-  animation: border-transform 7s linear infinite;
-  transition: bottom 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),  
-              right 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),
-              transform 250ms 1100ms ease,
-              width 650ms 400ms cubic-bezier(0.23, 1, 0.32, 1),
-              height 650ms 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  animation: border-transform 4s linear infinite;
+  transition: all 0.4s ease;
 }
-@keyframes border-transform{
-    0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; } 
-  14% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 
-  28% { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; } 
-  42% { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; } 
-  56% { border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; } 
-  70% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; } 
-  84% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; } 
+@keyframes border-transform {
+  0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; } 
+  50% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
 }
 
 .menu-icon:checked ~ .nav {
@@ -158,11 +133,7 @@ h1{
   transform: translate(50%, 50%);
   width: 200%;
   height: 200%;
-  transition: bottom 350ms 700ms cubic-bezier(0.23, 1, 0.32, 1),  
-              right 350ms 700ms cubic-bezier(0.23, 1, 0.32, 1),
-              transform 250ms 700ms ease,
-              width 750ms 1000ms cubic-bezier(0.23, 1, 0.32, 1),
-              height 750ms 1000ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.3s ease;
 }
 
 .nav ul{
@@ -189,21 +160,14 @@ h1{
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(30px);
-  transition: all 250ms linear;
+  transform: translateY(20px);
+  transition: all 0.25s ease;
 }
-.nav ul li:nth-child(1){
-  transition-delay: 200ms;
-}
-.nav ul li:nth-child(2){
-  transition-delay: 150ms;
-}
-.nav ul li:nth-child(3){
-  transition-delay: 100ms;
-}
-.nav ul li:nth-child(4){
-  transition-delay: 50ms;
-}
+.nav ul li:nth-child(1){ transition-delay: 0s; }
+.nav ul li:nth-child(2){ transition-delay: 0.05s; }
+.nav ul li:nth-child(3){ transition-delay: 0.1s; }
+.nav ul li:nth-child(4){ transition-delay: 0.15s; }
+
 .nav ul li a{
   font-family: 'Montserrat', sans-serif;
   font-size: 9vh;
@@ -213,7 +177,7 @@ h1{
   display: inline-block;
   position: relative;
   color: #ececee;
-  transition: all 250ms linear;
+  transition: all 0.25s ease;
 }
 .nav ul li a:hover{
   text-decoration: none;
@@ -230,41 +194,25 @@ h1{
   left: 0;
   background-color: #D4AF37;
   opacity: 0.8;
-  transition: width 250ms linear;
+  transition: width 0.25s linear;
 }
 .nav ul li a:hover:after{
   width: 100%;
 }
 
-
-.menu-icon:checked ~ .nav  ul li {
+.menu-icon:checked ~ .nav ul li {
   pointer-events: auto;
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 350ms ease,
-              transform 250ms ease;
+  transition: all 0.25s ease;
 }
-.menu-icon:checked ~ .nav ul li:nth-child(1){
-  transition-delay: 1400ms;
-}
-.menu-icon:checked ~ .nav ul li:nth-child(2){
-  transition-delay: 1480ms;
-}
-.menu-icon:checked ~ .nav ul li:nth-child(3){
-  transition-delay: 1560ms;
-}
-.menu-icon:checked ~ .nav ul li:nth-child(4){
-  transition-delay: 1640ms;
-}
-.menu-icon:checked ~ .nav ul li:nth-child(5){
-  transition-delay: 1720ms;
-}
-.menu-icon:checked ~ .nav ul li:nth-child(6){
-  transition-delay: 1800ms;
-}
-
-
+.menu-icon:checked ~ .nav ul li:nth-child(1){ transition-delay: 0s; }
+.menu-icon:checked ~ .nav ul li:nth-child(2){ transition-delay: 0.05s; }
+.menu-icon:checked ~ .nav ul li:nth-child(3){ transition-delay: 0.1s; }
+.menu-icon:checked ~ .nav ul li:nth-child(4){ transition-delay: 0.15s; }
+.menu-icon:checked ~ .nav ul li:nth-child(5){ transition-delay: 0.2s; }
+.menu-icon:checked ~ .nav ul li:nth-child(6){ transition-delay: 0.25s; }
 
 @media screen and (max-width: 991px) {
   .menu-icon:checked + label,
@@ -276,6 +224,7 @@ h1{
   }
   .nav{
     right: 30px;
+    animation: none !important; /* Mobilde animasyon devre dışı */
   }
   h1{
     font-size: 2vw;
