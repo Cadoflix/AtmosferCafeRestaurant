@@ -328,6 +328,54 @@ h1{
       85% { transform: translateY(-402%); }
       100% { transform: translateY(-400%); }
     }
+
+
+    /* 2026 Ramazan Menüsü – normal hali */
+.ramazan-link{
+  color: #9b4dff;
+  text-shadow:
+    0 0 4px rgba(155,77,255,0.6),
+    0 0 8px rgba(155,77,255,0.4);
+  animation: ramazanSoft 2s infinite alternate;
+}
+
+/* Hafif parlama */
+@keyframes ramazanSoft {
+  from {
+    text-shadow:
+      0 0 3px rgba(155,77,255,0.4),
+      0 0 6px rgba(155,77,255,0.3);
+  }
+  to {
+    text-shadow:
+      0 0 6px rgba(155,77,255,0.7),
+      0 0 12px rgba(155,77,255,0.5);
+  }
+}
+
+/* TIKLANDIĞINDA güçlü parlama */
+.ramazan-link.active{
+  color: #e3ccff;
+  text-shadow:
+    0 0 10px rgba(200,150,255,1),
+    0 0 25px rgba(180,120,255,0.9),
+    0 0 45px rgba(155,77,255,0.9);
+  animation: ramazanStrong 1.2s infinite alternate;
+}
+
+/* Güçlü parlama animasyonu */
+@keyframes ramazanStrong {
+  from {
+    text-shadow:
+      0 0 8px rgba(180,120,255,0.8),
+      0 0 18px rgba(155,77,255,0.7);
+  }
+  to {
+    text-shadow:
+      0 0 18px rgba(220,180,255,1),
+      0 0 40px rgba(180,120,255,1);
+  }
+}
   </style>
 </head>
 <body>
@@ -351,6 +399,9 @@ h1{
   <!-- Menü görselleri -->
   <section id="giris">
   <img class="menufoto" src="10.01.26 (1).webp">
+  </section>
+  <section id="ramazan2026">
+  <img class="menufoto" src="ramazan-2026.webp">
   </section>
   <section id="kahvalti">
   <img class="menufoto" src="10.01.26 (2).webp">
@@ -414,6 +465,7 @@ h1{
   	<label for="menu-icon" oncl></label>
   	<nav class="nav"> 		
   		<ul class="pt-7">
+        <li><a href="#ramazan2026">2026 Ramazan Menüsü</a></li>
   			<li><a href="#kahvalti">Kahvaltı</a></li>
         <li><a href="#baslangiclar">Başlangıçlar</a></li>
   			<li><a href="#yemek">Yemekler</a></li>
@@ -457,9 +509,32 @@ h1{
     const checkbox = document.getElementById('menu-icon');
     checkbox.checked = !checkbox.checked; // Manuel olarak toggle et
   });
+
+ 
+  const ramazanLink = document.querySelector('.ramazan-link');
+
+  ramazanLink.addEventListener('click', () => {
+
+    // Diğer tüm menüleri kapat
+    document.querySelectorAll('.nav ul li a')
+      .forEach(a => a.classList.remove('active'));
+
+    // Ramazan menüsünü parlat
+    ramazanLink.classList.add('active');
+  });
+
+  // Başka menüye basınca Ramazan parlaması kapansın
+  document.querySelectorAll('.nav ul li a:not(.ramazan-link)')
+    .forEach(link => {
+      link.addEventListener('click', () => {
+        ramazanLink.classList.remove('active');
+      });
+    });
+
   </script>
 </body>
 </html>
+
 
 
 
